@@ -7,9 +7,15 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <form action="{{ route('upload') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="file">
+                    <button type="submit">Upload</button>
+                </form>
                 <div class="p-6 text-gray-900">
-                    <div style="width: 50%;height:480px;resize:both;overflow:auto;border:solid 1px #eee;">
+                    <div style="width: 50%;height:380px;resize:both;overflow:auto;border:solid 1px #eee;">
                         <iframe
                             @if ($file_id == null) srcdoc="<div style='width: 100%;text-align: center;'>ERROR 404: FILE TIDAK DITEMUKAN</div>" 
                             @else src="https://drive.google.com/file/d/{{ $file_id }}/preview" @endif
@@ -19,7 +25,10 @@
                     </div>
 
                 </div>
+
             </div>
+
+
         </div>
     </div>
 </x-app-layout>

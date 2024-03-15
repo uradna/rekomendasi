@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/dashboard', [DashboardDriveController::class, 'index'])->name('dashboard');
+    Route::get('/delete', [DashboardDriveController::class, 'delete'])->name('delete');
+    Route::post('/upload', [DashboardDriveController::class, 'upload'])->name('upload');
 });
 
 require __DIR__.'/auth.php';
