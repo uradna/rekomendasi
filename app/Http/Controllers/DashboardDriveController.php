@@ -9,18 +9,19 @@ class DashboardDriveController extends Controller
 {
     public function index()
     {
-        $googleDisk = Storage::disk('google');
+        // $googleDisk = Storage::disk('google');
 
-        $file = "Surat-Permohonan-Semanding-13-03-2024.pdf";
+        // $file = "Surat-Permohonan-Semanding-13-03-2024.pdf";
         // $file = "email.kepala.desa.kec.sawoo.xlsx";
         // $file = "data.png";
-        if ($googleDisk->exists($file)) {
-            $file_id = $googleDisk->getAdapter()->getMetadata($file)->extraMetadata()['id'];
-        } else {
-            $file_id = null;
-        }
+        // if ($googleDisk->exists($file)) {
+        //     $file_id = $googleDisk->getAdapter()->getMetadata($file)->extraMetadata()['id'];
+        // } else {
+        //     $file_id = null;
+        // }
 
-        return view('dashboard', compact('file_id'));
+        // return view('dashboard', compact('file_id'));
+        return view('kecamatan.dashboard');
     }
 
     public function upload(Request $request)
